@@ -17,6 +17,7 @@ searchByCapital(term:string){
 
 const data=this.countriesService.searchCapital(term).subscribe(countries=>{
   this.countries=countries;
+
 });
 
 }

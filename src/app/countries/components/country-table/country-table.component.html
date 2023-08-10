@@ -20,7 +20,7 @@
       <td><img  [src]="country.flags.svg" [alt]="country.name.common"></td>
       <td>{{country.name.common}}</td>
       <td>{{country.population | number}}</td>
-      <td><a href="#">ver mas</a></td>
+      <td><a [routerLink]="['/countries/by/',country.cca3]" class="btn-xs p-1 btn-info text-decoration-none ">Info</a></td>
     </tr>
   </tbody>
 </table>

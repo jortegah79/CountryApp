@@ -8,7 +8,7 @@
 <div *ngIf="country;else loading">
   <div class="row">
     <div class="col-12">
-      <h2>País: <strong>{{ country?.name?.common }}</strong></h2>
+      <h2>País: <strong>{{ country!.name.common }}</strong></h2>
     </div>
   </div>
   <div class="row">
@@ -32,20 +32,20 @@
         <h3>Traducciones</h3>
       <div class="d-flex flex-wrap">
       <span class="badge bg-primary m-1">
-        {{country.translations['ara']?.common}}
+        {{country.translations['ara']!.common}}
       </span>
       <span class="badge bg-primary m-1">
-        {{country.translations['fin']?.common}}
+        {{country.translations['fin']!.common}}
       </span><span class="badge bg-primary m-1">
-        {{country.translations['spa']?.common}}
+        {{country.translations['spa']!.common}}
       </span><span class="badge bg-primary m-1">
-        {{country.translations['fra']?.common}}
+        {{country.translations['fra']!.common}}
       </span><span class="badge bg-primary m-1">
-        {{country.translations['por']?.common}}
+        {{country.translations['por']!.common}}
       </span><span class="badge bg-primary m-1">
-        {{country.translations['rus']?.common}}
+        {{country.translations['rus']!.common}}
       </span><span class="badge bg-primary m-1">
-        {{country.translations['ita']?.common}}
+        {{country.translations['ita']!.common}}
       </span>
       </div>
 

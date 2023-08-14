@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
 
@@ -8,18 +8,26 @@ import { Country } from '../../interfaces/country';
   styles: [
   ]
 })
-export class ByCapitalPageComponent {
+export class ByCapitalPageComponent implements OnInit{
 
-  countries:Country[]=[];
-  constructor(private countriesService:CountriesService){}
+  countries: Country[] = [];
+  isLoading: boolean = false;
+  initialValue:string="";
 
-searchByCapital(term:string){
+  constructor(private countriesService: CountriesService) { }
+  ngOnInit(): void {
+    this.initialValue=this.countriesService.cacheStore.byCapital.term;
+    this.countries=this.countriesService.cacheStore.byCapital.countries;
+  }
 
-const data=this.countriesService.searchCapital(term).subscribe(countries=>{
-  this.countries=countries;
+  searchByCapital(term: string) {
+    this.isLoading = true;
+    const data = this.countriesService.searchCapital(term).subscribe(countries => {
+      this.countries = countries;
+      this.isLoading = false;
+    });
 
-});
 
-}
+  }
 
 }
